@@ -1,0 +1,53 @@
+//SELECIONA A COLUNA
+SELECT
+
+//SELECIONA A TABELA
+FROM
+
+//SELECIONA TODO O CONTEUDO
+SELECT  * FROM csfloat;
+
+//SELECIONA CONTEUDO ESPECIFICO
+SELECT transacaoid FROM csfloat;
+
+//SELECIONA ONDE PROCURAR
+WHERE
+
+//SELECIONA ESPECIFICAMENTE POR ALGO
+WHERE origem LIKE '%csfloat%';
+
+//SELECIONA TODOS OS CARACTERES
+%
+EXEMPLO: AK% (TUDO QUE COMEÇAM COM AK)
+EXEMPLO: %AK (TUDO QUE TEM CARACTERES E TERMINA COM AK)
+EXEMPLO: %AK% (TUDO QUE TIVER AK ENTRE)
+
+//SELECIONA CONTEUDO ESPECIFICO DE ACORDO COM UMA REGRA
+SELECT transacaoid FROM csfloat WHERE > 100;
+
+//SELECIONA A ORDENAÇÃO
+ORDER BY transacaoid DESC;
+ORDER BY transacaoid ASC;
+
+//SELECIONA COM MAIS CONDIÇÕES
+AND
+OR
+
+//SELEÇÃO LIMITADA
+LIMIT 10;
+
+//SELECIONA COLUNA DE UMA TABELA ONDE OS VALORES SEJAM SUPERIOR A 100 E OS COLOCA EM ORDEM ASCENDENTE
+SELECT transacaoid 
+FROM csfloat 
+WHERE transacaoid > 100
+ORDER BY transacaoid ASC;
+
+//JUNTA TABELAS
+INNER JOIN tabela2 ON tabela1.coluna_comum_a_ambas = tabela2.coluna_comum_a_ambas;
+LEFT JOIN
+RIGHT JOIN
+
+SELECT csfloat.origem, itens.itemid, itens.preco, itens.nome, inventario.userid
+FROM csfloat
+JOIN itens ON csfloat.itemid = itens.itemid
+JOIN inventario ON itens.itemid = inventario.itemid;
